@@ -1,0 +1,38 @@
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+.container .gap {
+  padding: 0 15px;
+}
+
+#header .header {
+  height: 170px;
+  display: flex;
+}
+#header .header .pr-video a {
+  display: block;
+}
+#header .header .menu-box {
+  flex-basis: 70%;
+  border-right: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+#header .header .menu-box .logo-box {
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+}
+#header .header .menu-box .logo-box a {
+  display: block;
+  width: 150px;
+  margin: auto;
+}
+#header .header .menu-box .logo-box a img {
+  display: block;
+  width: 100%;
+}
+#header .header .menu-box .gnb-box ul {
+  display: flex;
+  justify-content: space-around;
+}/*# sourceMappingURL=brstyle.min.css.map */

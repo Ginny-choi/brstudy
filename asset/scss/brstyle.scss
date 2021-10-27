@@ -1,0 +1,53 @@
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+
+  .gap {
+    padding: 0 15px;
+  }
+}
+
+#header {
+  .header {
+    height: 170px;
+    display: flex;
+
+    .pr-video {
+      a {
+        display: block;
+      }
+    }
+    .menu-box {
+      flex-basis: 70%;
+      border-right: 1px solid #dbdbdb;
+      border-bottom: 1px solid #dbdbdb;
+      .logo-box {
+        width: 100%;
+        border-bottom: 1px solid #dbdbdb;
+
+        a {
+          display: block;
+          width: 150px;
+          margin: auto;
+
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+      .gnb-box {
+        ul {
+          display: flex;
+          justify-content: space-around;
+
+          li {
+          }
+        }
+      }
+    }
+    .right-box {
+    }
+  }
+}
