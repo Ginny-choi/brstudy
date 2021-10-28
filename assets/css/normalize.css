@@ -201,6 +201,8 @@ button,
 select {
   /* 1 */
   text-transform: none;
+  border: none;
+  outline: none;
 }
 
 /**
@@ -361,4 +363,13 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/** 텍스트 숨기기 **/
+.ir_pm {
+  font-size: 0;
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  text-indent: -9999px;
 }
