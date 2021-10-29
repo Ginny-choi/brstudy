@@ -13,8 +13,7 @@ $(document).ready(function () {
   gnbBtn.on({
     click: function (e) {
       e.preventDefault();
-
-      if ($(this).hasClass("active") == true) {
+      if ($(this).hasClass("active")) {
         subMenu.slideUp(300);
         $(this).removeClass("active");
       } else {

@@ -18,9 +18,25 @@
       a {
         display: block;
       }
+
+      @media all and (max-width: 1200px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 130px;
+        height: 110px;
+        a,
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          margin-left: -1px;
+        }
+      }
     }
     .menu-box {
       flex-basis: 70%;
+      flex-grow: 1;
       border-bottom: 1px solid #dbdbdb;
       .logo-box {
         width: 100%;
@@ -28,6 +44,10 @@
         box-sizing: border-box;
         border-bottom: 1px solid #dbdbdb;
 
+        @media all and (max-width: 1200px) {
+          width: calc(100% - 130px);
+          margin-left: auto;
+        }
         a {
           display: block;
           width: 150px;
@@ -36,6 +56,13 @@
           img {
             display: block;
             width: 100%;
+
+            // @media all and (max-width: 1200px) {
+            //   margin-left: 65px;
+            // }
+            // @media all and (max-width: 990px) {
+            //   margin-left: 80%;
+            // }
           }
         }
       }
@@ -49,7 +76,7 @@
           align-items: center;
 
           .gnb-wrap {
-            width: 20%;
+            width: 16.6666%;
 
             &:nth-child(6) {
               .gnb-btn {
@@ -61,14 +88,18 @@
 
             .gnb-btn {
               display: block;
+              position: relative;
               width: 100%;
               color: #777;
+              font-size: 15px;
               font-weight: bold;
               text-align: center;
               line-height: 60px;
               transition: all 0.3s;
-              position: relative;
 
+              @media all and (max-width: 990px) {
+                font-size: 13px;
+              }
               &.active {
                 background: #66a6ff;
                 color: #fff;
@@ -230,6 +261,13 @@
       }
     }
     .right-box {
+      @media all and (max-width: 990px) {
+        width: 200px;
+        position: relative;
+      }
+      @media all and (max-width: 768px) {
+        width: 0;
+      }
       width: 400px;
       flex-shrink: 0;
       .info-box {
@@ -237,6 +275,10 @@
         display: flex;
         background: url(../img/header_right_ad_bg.gif) no-repeat;
         background-size: cover;
+
+        @media all and (max-width: 990px) {
+          display: none;
+        }
         ul {
           width: 356px;
           .text-box {
@@ -305,6 +347,10 @@
         justify-content: space-between;
         border: 1px solid #dbdbdb;
         border-right: none;
+
+        @media all and (max-width: 990px) {
+          display: none;
+        }
         .left-box {
           li {
             display: inline-block;
@@ -357,10 +403,29 @@
         height: 60px;
         display: flex;
         border-bottom: 1px solid #dbdbdb;
+
+        @media all and (max-width: 990px) {
+          display: block;
+          width: 100%;
+          height: 61px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-left: 1px solid #dbdbdb;
+          border-top: 1px solid #dbdbdb;
+        }
         .menuBtn-wrap {
           width: 70px;
           border-right: 1px solid #dbdbdb;
           border-left: 1px solid #dbdbdb;
+
+          @media all and (max-width: 990px) {
+            position: absolute;
+            bottom: 60px;
+            right: -1px;
+            width: 110px;
+            height: 110px;
+          }
           .menu-btn {
             display: block;
             width: 100%;
@@ -377,11 +442,15 @@
               left: 50%;
               transform: translate(-50%, -50%);
 
+              @media all and (max-width: 990px) {
+                width: 30px;
+              }
+
               &::before {
                 content: "";
                 display: block;
-                width: 25px;
-                height: 3px;
+                width: 100%;
+                height: 100%;
                 background: #000;
                 position: absolute;
                 top: -8px;
@@ -389,8 +458,8 @@
               &::after {
                 content: "";
                 display: block;
-                width: 25px;
-                height: 3px;
+                width: 100%;
+                height: 100%;
                 background: #000;
                 position: absolute;
                 bottom: -8px;
@@ -400,6 +469,13 @@
         }
         .search {
           flex-grow: 1;
+
+          @media all and (max-width: 990px) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+          }
           .search-drop-btn {
             display: block;
             padding: 20px;
@@ -409,8 +485,16 @@
             font-size: 15px;
             font-weight: 600;
 
+            @media all and (max-width: 990px) {
+              font-size: 13px;
+              background-size: 20px;
+            }
+
             span {
               padding-left: 34px;
+              @media all and (max-width: 990px) {
+                padding-left: 25px;
+              }
             }
           }
           .dep2-search-box {
@@ -639,6 +723,81 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+  .mobile-notice {
+    @media all and (max-width: 990px) {
+      display: block;
+    }
+    display: none;
+    position: absolute;
+    top: 170px;
+    left: 0;
+    width: 100%;
+
+    background: #f1f2f8;
+    border-bottom: 1px solid #dbdbdb;
+
+    .mobile-info-box {
+      display: flex;
+      height: 50px;
+
+      ul {
+        flex-grow: 1;
+        .text-box {
+          padding: 0 10px 0 20px;
+          line-height: 50px;
+          a {
+            display: flex;
+            background: url(../img/header_right_ad_icon_alarm.gif) no-repeat left center;
+            font-size: 12px;
+
+            .bar {
+              color: #1572ba;
+              position: relative;
+              padding: 0 5px 0 20px;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 10px;
+                background: #dbdbdb;
+              }
+            }
+            .notice-text {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              padding-left: 5px;
+            }
+          }
+        }
+      }
+
+      .control-box {
+        width: 44px;
+        height: 100%;
+        background: url(../img/bg_notice_box.gif) no-repeat;
+        button {
+          cursor: pointer;
+        }
+        .up-btn {
+          display: block;
+          height: 50%;
+          width: 100%;
+          background: url(../img/upbtn.gif) no-repeat center;
+        }
+        .down-btn {
+          display: block;
+          height: 50%;
+          width: 100%;
+          background: url(../img/downbtn.gif) no-repeat center;
         }
       }
     }
