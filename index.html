@@ -423,7 +423,7 @@
                   </a>
                 </div>
                 <div class="search">
-                  <a href="#"><span>제품을 찾고 계신가요?</span></a>
+                  <a href="#" class="search-drop-btn"><span>제품을 찾고 계신가요?</span></a>
                   <div class="dep2-search-box">
                     <div class="container">
                       <div class="dep2-search-content">
@@ -449,15 +449,23 @@
                             <li><a href="#" class="type-list">기관별</a></li>
                           </ul>
                           <div class="select-box">
-                            <select name="" id="">
-                              <option value="">선택해주세요</option>
-                              <option value="">선택해주세요</option>
-                              <option value="">선택해주세요</option>
-                              <option value="">선택해주세요</option>
-                              <option value="">선택해주세요</option>
-                              <option value="">선택해주세요</option>
+                            <label for="type">선택해주세요</label>
+                            <select name="" id="type">
+                              <option value="" selected>선택해주세요</option>
+                              <option value="전문의약품">전문의약품</option>
+                              <option value="일반의약품">일반의약품</option>
+                              <option value="백신제제">백신제제</option>
+                              <option value="의약외품">의약외품</option>
+                              <option value="의료기기">의료기기</option>
+                              <option value="화장품">화장품</option>
+                              <option value="건강음료">건강음료</option>
+                              <option value="기타">기타</option>
+                              <option value="투석">투석</option>
                             </select>
                           </div>
+                        </div>
+                        <div class="search-close">
+                          <a href="#" class="search-close-btn"></a>
                         </div>
                       </div>
                     </div>

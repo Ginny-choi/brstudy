@@ -51,6 +51,14 @@
           .gnb-wrap {
             width: 20%;
 
+            &:nth-child(6) {
+              .gnb-btn {
+                &::after {
+                  display: none;
+                }
+              }
+            }
+
             .gnb-btn {
               display: block;
               width: 100%;
@@ -59,35 +67,34 @@
               text-align: center;
               line-height: 60px;
               transition: all 0.3s;
+              position: relative;
 
               &.active {
                 background: #66a6ff;
                 color: #fff;
-              }
-            }
-            &::after {
-              content: "";
-              position: absolute;
-              width: 1px;
-              height: 15px;
-              background: #e5e5e5;
-              top: 50%;
-              right: 0;
-              transform: translateY(-50%);
-            }
 
-            &:last-child {
-              &::after {
-                display: none;
+                &::after {
+                  display: none;
+                }
               }
-            }
-            &:hover {
-              .gnb-btn {
+              &::after {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 15px;
+                background: #e5e5e5;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+              }
+
+              &:hover {
                 background: #66a6ff;
                 color: #fff;
-              }
-              &::after {
-                display: none;
+
+                &::after {
+                  display: none;
+                }
               }
             }
           }
@@ -100,7 +107,7 @@
         top: 170px;
         left: 0;
         width: 100vw;
-        border: 1px solid #ddd;
+        background: rgba(#f0f0f0, 0.5);
 
         &.dep2-1 {
           display: none;
@@ -393,7 +400,7 @@
         }
         .search {
           flex-grow: 1;
-          > a {
+          .search-drop-btn {
             display: block;
             padding: 20px;
             background: url(../img/icon_zoom.png) no-repeat 20px center;
@@ -407,20 +414,18 @@
             }
           }
           .dep2-search-box {
+            display: none;
             position: absolute;
             top: 170px;
             left: 0;
             width: 100%;
-            background: #000;
-            height: 300px;
-
+            background: rgba(#f0f0f0, 0.8);
             .dep2-search-content {
               display: flex;
               width: 85%;
-              height: 300px;
               margin-left: auto;
-              background: #fff;
-              padding: 35px 0;
+              padding: 35px 0 55px 0;
+              position: relative;
 
               .search-title-box {
                 width: 330px;
@@ -468,19 +473,24 @@
                 }
               }
               .search-select-box {
-                width: 330px;
+                flex: 1;
                 h3 {
                   font-size: 18px;
                   font-weight: 700;
                   color: #4b9bd9;
                 }
                 .list-box {
+                  width: 330px;
                   display: flex;
+                  justify-content: space-around;
                   margin-bottom: 15px;
                   li {
-                    width: 32.5%;
-                    margin-right: 0.5%;
+                    width: 33.333%;
                     text-align: center;
+
+                    &:last-child {
+                      margin-right: 0;
+                    }
 
                     .type-list {
                       display: block;
@@ -499,11 +509,36 @@
                   width: 100%;
                   height: 45px;
                   background: url(../img/header_search_input_1_bg.gif) no-repeat;
+                  position: relative;
+                  label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    line-height: 45px;
+                    padding-left: 25px;
+                    color: #4b9bd9;
+                  }
                   select {
                     width: 100%;
                     height: 100%;
                     border: 1px solid #4b9bd9;
+                    opacity: 0;
+                    padding: 0 15px;
                   }
+                }
+              }
+              .search-close {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+
+                .search-close-btn {
+                  display: block;
+                  background: url(../img/header_btn_close.png) no-repeat;
+                  background-size: cover;
+                  width: 20px;
+                  height: 20px;
                 }
               }
             }
