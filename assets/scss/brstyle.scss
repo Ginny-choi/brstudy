@@ -1,8 +1,12 @@
+@use "functions" as f;
+@use "mixins" as m;
 .container {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-
+  // font-size: f.pxtoem(36, f.$basepx); @function em
+  // font-size: f.pxtorem(36, f.$basepx); @function rem
+  // @include m.textEllipsis(36px, 2);
   .gap {
     padding: 0 15px;
   }
@@ -47,6 +51,11 @@
       flex-basis: 70%;
       flex-grow: 1;
       border-bottom: 1px solid #dbdbdb;
+
+      @media all and (max-width: 768px) {
+        border-right: 1px solid #dbdbdb;
+      }
+
       .logo-box {
         width: 100%;
         height: 110px;
@@ -59,6 +68,7 @@
         }
         @media all and (max-width: 768px) {
           height: 70px;
+          border-bottom: none;
         }
         a {
           display: block;
@@ -90,6 +100,10 @@
           justify-content: space-around;
           align-items: center;
 
+          @media all and (max-width: 768px) {
+            border-top: 1px solid #dbdbdb;
+          }
+
           .gnb-wrap {
             width: 16.6666%;
 
@@ -100,6 +114,18 @@
                 }
               }
             }
+            // @media all and (max-width: 576px) {
+            //   &:nth-child(2),
+            //   &:nth-child(3),
+            //   &:nth-child(5) {
+            //     width: 10%;
+            //   }
+            //   &:nth-child(1),
+            //   &:nth-child(4),
+            //   &:nth-child(6) {
+            //     width: 23.3333%;
+            //   }
+            // }
 
             .gnb-btn {
               display: block;
@@ -151,10 +177,11 @@
       .sub-menu {
         display: none;
         position: absolute;
+        z-index: 99;
         top: 170px;
         left: 0;
         width: 100vw;
-        background: rgba(#f0f0f0, 0.5);
+        background: rgba(#fff, 0.5);
 
         .gap {
           position: relative;
@@ -175,10 +202,17 @@
         .sub-content {
           display: flex;
           width: 70%;
-          margin: auto;
+          margin: 0 auto;
           padding: 45px 0;
+
+          @media all and (max-width: 1200px) {
+            width: 100%;
+          }
           .title-box {
             width: 300px;
+            @media all and (max-width: 990px) {
+              width: 250px;
+            }
             .sub-title {
               margin: 0;
               font-weight: 400;
@@ -267,6 +301,9 @@
       }
       @media all and (max-width: 768px) {
         width: 70px;
+      }
+      @media all and (max-width: 576px) {
+        width: 50px;
       }
       .info-box {
         height: 55px;
@@ -413,6 +450,10 @@
           border-top: 1px solid #dbdbdb;
         }
 
+        @media all and (max-width: 768px) {
+          border-left: none;
+        }
+
         .menuBtn-wrap {
           width: 70px;
           border-right: 1px solid #dbdbdb;
@@ -424,10 +465,12 @@
             right: -1px;
             width: 110px;
             height: 110px;
+            border-right: none;
           }
           @media all and (max-width: 768px) {
-            width: 70px;
+            width: 100%;
             height: 70px;
+            border-left: none;
           }
           .menu-btn {
             display: block;
@@ -648,11 +691,17 @@
   }
 
   .drop-menu {
+    display: none;
     position: absolute;
+    z-index: 99;
     top: 170px;
     left: 0;
     width: 100%;
-    display: none;
+    background: #fff;
+
+    @media all and (max-width: 768px) {
+      top: 131px;
+    }
 
     .drop-content {
       max-width: 1400px;
@@ -678,15 +727,16 @@
         }
 
         .drop-nav {
-          background: #fff;
-          width: 75%;
+          width: 80%;
           margin: 0 auto;
 
           .drop-dep1 {
             display: flex;
+            flex-wrap: wrap;
 
             .drop-gnb-list {
               width: 150px;
+              flex: 1;
               .drop-gnb {
                 display: block;
                 height: 100px;
@@ -698,6 +748,7 @@
                 }
               }
               .drop-dep2 {
+                padding-left: 10px;
                 > li {
                   > a {
                     display: block;
@@ -772,6 +823,7 @@
             font-size: 12px;
 
             .bar {
+              width: 72px;
               color: #1572ba;
               position: relative;
               padding: 0 5px 0 20px;

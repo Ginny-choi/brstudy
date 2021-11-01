@@ -1,0 +1,15 @@
+@function remove-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+// Enter a base pixel size in px (without the px)
+$basepx: 16;
+
+// Convert PX to EM global function
+@function pxtoem($px, $basepx) {
+  @return ($px/$basepx)+0em;
+}
+
+@function pxtorem($px, $basepx) {
+  @return (remove-unit($px / $basepx)) * 1rem;
+}
