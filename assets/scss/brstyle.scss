@@ -55,6 +55,9 @@
       @media all and (max-width: 768px) {
         border-right: 1px solid #dbdbdb;
       }
+      @media all and (max-width: 576px) {
+        border-right: none;
+      }
 
       .logo-box {
         width: 100%;
@@ -99,6 +102,9 @@
       }
       .gnb-box {
         height: 60px;
+        @media all and (max-width: 576px) {
+          display: none;
+        }
         > ul {
           width: 100%;
           height: 100%;
@@ -364,7 +370,7 @@
         width: 70px;
       }
       @media all and (max-width: 576px) {
-        width: 50px;
+        width: 0;
       }
       .info-box {
         height: 55px;
@@ -514,6 +520,9 @@
         @media all and (max-width: 768px) {
           border-left: none;
         }
+        @media all and (max-width: 576px) {
+          top: 0;
+        }
 
         .menuBtn-wrap {
           width: 70px;
@@ -533,6 +542,11 @@
             height: 70px;
             border-left: none;
           }
+          @media all and (max-width: 576px) {
+            width: 30px;
+            top: 0;
+            bottom: 0;
+          }
           .menu-btn {
             display: block;
             width: 100%;
@@ -551,6 +565,9 @@
 
               @media all and (max-width: 990px) {
                 width: 30px;
+              }
+              @media all and (max-width: 576px) {
+                width: 20px;
               }
 
               &::before {
@@ -587,6 +604,9 @@
             width: 100%;
             height: 60px;
           }
+          @media all and (max-width: 576px) {
+            display: none;
+          }
           .search-drop-btn {
             display: block;
             padding: 20px;
@@ -616,6 +636,24 @@
               }
             }
           }
+        }
+      }
+      .mobile-search-box {
+        display: none;
+        position: absolute;
+        width: 30px;
+        height: 70px;
+        top: 0;
+        right: 30px;
+        @media all and (max-width: 576px) {
+          display: block;
+        }
+        .mobile-search-btn {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: url(../img/btn_tablet_search.png) no-repeat center;
+          background-size: 45px;
         }
       }
     }
@@ -879,6 +917,9 @@
     @media all and (max-width: 768px) {
       top: 130px;
     }
+    @media all and (max-width: 576px) {
+      top: 70px;
+    }
 
     .mobile-info-box {
       display: flex;
@@ -942,6 +983,23 @@
           background: url(../img/downbtn.gif) no-repeat center;
         }
       }
+    }
+  }
+  .mobile-lnb-menu {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100vh;
+    background: rgba(#000, 0.7);
+
+    .left-icon-box {
+      width: 100px;
+      height: 100%;
+      background: #000;
+    }
+    .right-lnb-box {
     }
   }
 }
