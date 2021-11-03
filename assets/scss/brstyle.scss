@@ -997,7 +997,62 @@
     .left-icon-box {
       width: 100px;
       height: 100%;
-      background: #000;
+      background: #fff;
+
+      ul {
+        li {
+          width: 100%;
+          height: 70px;
+          text-align: center;
+
+          &:nth-child(1) {
+            height: 55px;
+          }
+
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+
+            .mobile-icon {
+              display: block;
+              width: 50px;
+              height: 50px;
+              padding: 20px 0;
+              margin: 0 auto;
+              background: url(../img/icon_aside.png) no-repeat;
+              background-size: 10px;
+
+              &.micon0 {
+                background-position: 0 -10px;
+              }
+
+              &.micon1 {
+                background-position: -300px -10px;
+              }
+              &.micon2 {
+                background-position: -100px -10px;
+              }
+              &.micon3 {
+                background-position: -150px -10px;
+              }
+              &.micon4 {
+                background-position: -200px -10px;
+              }
+              &.micon5 {
+                background-position: -250px -10px;
+              }
+              &.micon6 {
+                background-position: -50px -10px;
+              }
+              &.micon7 {
+                background-position: -350px -10px;
+              }
+            }
+          }
+        }
+      }
     }
     .right-lnb-box {
     }
