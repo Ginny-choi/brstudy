@@ -17,6 +17,7 @@
   .header {
     height: 170px;
     display: flex;
+    position: relative;
 
     @media all and (max-width: 768px) {
       height: auto;
@@ -641,7 +642,7 @@
       .mobile-search-box {
         display: none;
         position: absolute;
-        width: 30px;
+        width: 70px;
         height: 70px;
         top: 0;
         right: 30px;
@@ -990,64 +991,69 @@
     position: absolute;
     top: 0;
     right: 0;
+    transform: translateX(100%);
     width: 80%;
     height: 100vh;
-    background: rgba(#000, 0.7);
+    display: flex;
+    transition: transform 1s;
+
+    &.mobile-show {
+      transform: translateX(0);
+    }
 
     .left-icon-box {
       width: 100px;
       height: 100%;
-      background: #fff;
+      background: #f1f2f8;
 
       ul {
         li {
           width: 100%;
-          height: 70px;
           text-align: center;
+          border-bottom: 1px solid #dbdbdb;
 
-          &:nth-child(1) {
-            height: 55px;
+          &:last-child {
+            border-bottom: none;
           }
 
           a {
             display: block;
             width: 100%;
-            height: 100%;
+            padding: 15px 0;
             font-size: 12px;
 
             .mobile-icon {
               display: block;
-              width: 50px;
-              height: 50px;
-              padding: 20px 0;
+              width: 25px;
+              height: 25px;
               margin: 0 auto;
               background: url(../img/icon_aside.png) no-repeat;
-              background-size: 10px;
+              background-size: 200px 50px;
 
               &.micon0 {
-                background-position: 0 -10px;
+                background-position: 0 -5px;
               }
 
               &.micon1 {
-                background-position: -300px -10px;
+                background-position: -150px -5px;
               }
               &.micon2 {
-                background-position: -100px -10px;
+                background-position: -50px -5px;
               }
               &.micon3 {
-                background-position: -150px -10px;
+                background-position: -75px -5px;
               }
               &.micon4 {
-                background-position: -200px -10px;
+                background-position: -100px -5px;
               }
               &.micon5 {
-                background-position: -250px -10px;
+                background-position: -125px -5px;
               }
               &.micon6 {
-                background-position: -50px -10px;
+                background-position: -25px -5px;
               }
               &.micon7 {
-                background-position: -350px -10px;
+                background-position: -175px -5px;
               }
             }
           }
@@ -1055,6 +1061,98 @@
       }
     }
     .right-lnb-box {
+      width: calc(100% - 100px);
+      overflow-y: scroll;
+      background: #fff;
+      position: relative;
+
+      .right-lnb-gap {
+        padding: 10px 0 0 30px;
+
+        .right-lnb-sns {
+          margin-bottom: 15px;
+          li {
+            display: inline-block;
+            position: relative;
+            padding-right: 10px;
+
+            &:nth-child(2) {
+              padding-left: 4px;
+            }
+
+            &.bar::after {
+              content: "";
+              display: block;
+              position: absolute;
+              right: 0;
+              top: 48%;
+              transform: translateY(-50%);
+              width: 1px;
+              height: 19px;
+              background: #777;
+            }
+            a {
+              display: block;
+              width: 34px;
+              height: auto;
+
+              img {
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+        }
+        .right-lnb-menu {
+          > ul {
+            > li {
+              margin-bottom: 40px;
+              h3 {
+                display: block;
+                width: 100%;
+                padding-bottom: 5px;
+                margin: 0;
+                border-bottom: 2px solid #dbdbdb;
+                font-size: 18px;
+                font-weight: 600;
+              }
+              .mobile-submenu {
+                width: 100%;
+                .msub-lnb {
+                  width: 95%;
+                  margin-left: auto;
+                  a {
+                    display: block;
+                    padding: 12px 0;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #666666;
+                    border-bottom: 1px solid #dbdbdb;
+                  }
+                  .mobile-dep3menu {
+                    a {
+                      font-weight: normal;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .mobile-lnb-close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 20px;
+          height: 20px;
+          .mobile-lnb-close-btn {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(../img/header_btn_close.png) no-repeat;
+          }
+        }
+      }
     }
   }
 }
