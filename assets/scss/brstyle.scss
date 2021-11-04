@@ -14,6 +14,7 @@
 
 #header {
   position: relative;
+
   .header {
     height: 170px;
     display: flex;
@@ -79,6 +80,9 @@
           padding-left: 0;
           height: 70px;
           border-bottom: none;
+        }
+        @media all and (max-width: 576px) {
+          width: calc(100% - 30px);
         }
         a {
           display: block;
@@ -368,10 +372,11 @@
         position: relative;
       }
       @media all and (max-width: 768px) {
-        width: 70px;
+        display: none;
+        // width: 70px;
       }
       @media all and (max-width: 576px) {
-        width: 0;
+        display: none;
       }
       .info-box {
         height: 55px;
@@ -543,11 +548,6 @@
             height: 70px;
             border-left: none;
           }
-          @media all and (max-width: 576px) {
-            width: 30px;
-            top: 0;
-            bottom: 0;
-          }
           .menu-btn {
             display: block;
             width: 100%;
@@ -639,22 +639,66 @@
           }
         }
       }
-      .mobile-search-box {
-        display: none;
-        position: absolute;
-        width: 70px;
-        height: 70px;
-        top: 0;
-        right: 30px;
-        @media all and (max-width: 576px) {
+    }
+    .mobile-search-box {
+      display: none;
+      position: absolute;
+      width: 80px;
+      height: 70px;
+      top: 0;
+      right: 0;
+
+      &::after {
+        display: block;
+        clear: both;
+        content: "";
+      }
+      @media all and (max-width: 768px) {
+        display: block;
+      }
+      .mobile-search-btn {
+        display: block;
+        float: left;
+        width: 40px;
+        height: 100%;
+        background: url(../img/btn_tablet_search.png) no-repeat center;
+        background-size: 45px;
+      }
+      .mobile-menu-btn {
+        display: block;
+        float: left;
+        position: relative;
+        width: 40px;
+        height: 100%;
+
+        .ham {
           display: block;
-        }
-        .mobile-search-btn {
-          display: block;
-          width: 100%;
-          height: 100%;
-          background: url(../img/btn_tablet_search.png) no-repeat center;
-          background-size: 45px;
+          float: left;
+          width: 25px;
+          height: 3px;
+          background: #000;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: absolute;
+            top: -8px;
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: absolute;
+            bottom: -8px;
+          }
         }
       }
     }
@@ -988,14 +1032,16 @@
   }
   .mobile-lnb-menu {
     z-index: 100;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
-    transform: translateX(100%);
-    width: 80%;
-    height: 100vh;
     display: flex;
+    display: none;
+    width: 80%;
+    max-width: 568px;
+    height: 100vh;
     transition: transform 1s;
+    transform: translateX(100%);
 
     &.mobile-show {
       transform: translateX(0);
@@ -1150,6 +1196,129 @@
             width: 100%;
             height: 100%;
             background: url(../img/header_btn_close.png) no-repeat;
+          }
+        }
+      }
+    }
+  }
+  .mobile-search-menu {
+    z-index: 99;
+    position: absolute;
+    top: 131px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    .msearch-title-box {
+      width: 100%;
+      text-align: center;
+      background: #4b9bd9;
+      padding: 15px 0;
+      h3 {
+        margin: 0;
+        color: #ffff;
+      }
+    }
+
+    .msearch-gap {
+      padding: 15px 15px 30px 15px;
+
+      .top-search-box {
+        h3 {
+          margin-top: 0;
+          color: #4b9bd9;
+          font-size: 18px;
+        }
+        .form-box {
+          width: 100%;
+          position: relative;
+
+          input {
+            width: 100%;
+            padding: 10px 45px 10px 10px;
+            border: 3px solid #4b9bd9;
+
+            &:focus {
+              outline: none;
+            }
+          }
+          .button-box {
+            z-index: 2;
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background: url(../img/icon_zoom.png) no-repeat center;
+            background-size: 25px 25px;
+
+            button {
+              cursor: pointer;
+              background: transparent;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+      .botton-type-box {
+        margin-top: 20px;
+        h3 {
+          margin-top: 0;
+          color: #4b9bd9;
+          font-size: 18px;
+        }
+        .type-box {
+          width: 100%;
+          height: auto;
+          border: 1px solid #4b9bd9;
+          ul {
+            > li {
+              border-bottom: 1px solid #4b9bd9;
+
+              &:last-child {
+                border-bottom: none;
+              }
+
+              .type-btn {
+                display: block;
+                padding: 10px 16px;
+                color: #4b9bd9;
+                position: relative;
+
+                .more-btn-wrap {
+                  display: inline-block;
+                  position: absolute;
+                  top: 50%;
+                  right: 10px;
+                  transform: translate(0, -50%);
+                  width: 20px;
+                  height: 20px;
+                  padding: 0;
+                  background: transparent;
+                  cursor: pointer;
+
+                  .more-btn {
+                    display: block;
+                    background: #4b9bd9;
+                    position: absolute;
+                    &.bar1 {
+                      width: 100%;
+                      height: 1px;
+                      top: 50%;
+                      left: 0;
+                    }
+                    &.bar2 {
+                      width: 1px;
+                      height: 100%;
+                      transform: rotate(180deg);
+                      top: 0;
+                      left: 50%;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

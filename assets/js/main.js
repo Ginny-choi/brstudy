@@ -3,12 +3,16 @@ $(document).ready(function () {
   const subMenu = $(".sub-menu");
   const dropMenu = $(".drop-menu");
   const dep2SearchBox = $(".dep2-search-box");
+  const mobileLnbMenu = $(".mobile-lnb-menu");
 
   const closeBtn = $(".close-btn");
-  const menuBtn = $(".menu-btn");
+  const menuBtn = $(".search-box .menu-btn");
   const searchBtn = $(".search-drop-btn");
+  const mobileMenuBtn = $(".mobile-menu-btn");
+
   const dropCloseBtn = $(".drop-close-btn");
   const searchCloseBtn = $(".search-close-btn");
+  const mobileLnbCloseBtn = $(".mobile-lnb-close-btn");
 
   gnbBtn.on({
     click: function (e) {
@@ -32,6 +36,8 @@ $(document).ready(function () {
     },
   });
 
+  //웹-테블릿 햄버거 버튼
+
   menuBtn.on({
     click: function (e) {
       e.preventDefault();
@@ -46,6 +52,8 @@ $(document).ready(function () {
     },
   });
 
+  //웹-테블릿 서치 버튼
+
   searchBtn.on({
     click: function (e) {
       e.preventDefault();
@@ -57,5 +65,17 @@ $(document).ready(function () {
       e.preventDefault();
       dep2SearchBox.slideUp(300);
     },
+  });
+
+  //모바일 햄버거 버튼
+
+  // mobileMenuBtn.click(function (e) {
+  //   e.preventDefault();
+  //   mobileLnbMenu.addClass("mobile-show");
+  // });
+
+  mobileLnbCloseBtn.click(function (e) {
+    e.preventDefault();
+    mobileLnbMenu.removeClass("mobile-show");
   });
 });
