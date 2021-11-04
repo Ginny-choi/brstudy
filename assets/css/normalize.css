@@ -368,7 +368,7 @@ template {
 
 /** 텍스트 숨기기 **/
 .ir_pm {
-  font-size: 0;
+  font-size: 1px;
   display: block;
   overflow: hidden;
   line-height: 0;

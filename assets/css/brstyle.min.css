@@ -710,6 +710,11 @@
     top: 131px;
   }
 }
+@media all and (min-width: 768px) {
+  #header .dep2-search-box.active {
+    display: block;
+  }
+}
 #header .dep2-search-box .dep2-search-content {
   display: flex;
   width: 85%;
@@ -833,6 +838,11 @@
   left: 0;
   width: 100%;
   background: #fff;
+}
+@media all and (min-width: 768px) {
+  #header .drop-menu.active {
+    display: block;
+  }
 }
 @media all and (max-width: 768px) {
   #header .drop-menu {
@@ -1016,17 +1026,23 @@
   position: fixed;
   top: 0;
   right: 0;
-  display: flex;
   width: 80%;
-  max-width: 568px;
   height: 100vh;
   transition: transform 1s;
   transform: translateX(100%);
 }
-#header .mobile-lnb-menu.mobile-show {
-  transform: translateX(0);
+#header .mobile-lnb-menu::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+@media all and (max-width: 768px) {
+  #header .mobile-lnb-menu.mobile-show {
+    transform: translateX(0);
+  }
 }
 #header .mobile-lnb-menu .left-icon-box {
+  float: left;
   width: 100px;
   height: 100%;
   background: #f1f2f8;
@@ -1078,6 +1094,7 @@
   background-position: -175px -5px;
 }
 #header .mobile-lnb-menu .right-lnb-box {
+  float: right;
   width: calc(100% - 100px);
   overflow-y: scroll;
   background: #fff;
@@ -1168,6 +1185,12 @@
   width: 100%;
   background: #fff;
   display: none;
+  transition: top 1s;
+}
+@media all and (max-width: 768px) {
+  #header .mobile-search-menu.active {
+    display: block;
+  }
 }
 @media all and (max-width: 567px) {
   #header .mobile-search-menu {

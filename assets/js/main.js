@@ -1,7 +1,6 @@
 $(document).ready(function () {
   const $window = $(window);
-  const $header = $(".header");
-  const $gnbBox = $(".gnb-box");
+  const gnbBox = $(".gnb-box");
   const headerRightBox = $(".header .right-box");
   const gnbBtn = $(".gnb-btn");
   const subMenu = $(".sub-menu");
@@ -45,7 +44,7 @@ $(document).ready(function () {
     },
   });
 
-  $gnbBox.mouseleave(function () {
+  gnbBox.mouseleave(function () {
     subMenu.hide();
     gnbBtn.removeClass("active");
   });
@@ -55,14 +54,14 @@ $(document).ready(function () {
   menuBtn.on({
     click: function (e) {
       e.preventDefault();
-      dropMenu.slideToggle(300);
+      dropMenu.toggleClass("active");
     },
   });
 
   dropCloseBtn.on({
     click: function (e) {
       e.preventDefault();
-      dropMenu.slideUp(300);
+      dropMenu.removeClass("active");
     },
   });
 
@@ -71,49 +70,59 @@ $(document).ready(function () {
   searchBtn.on({
     click: function (e) {
       e.preventDefault();
-      dep2SearchBox.slideToggle(300);
+      dep2SearchBox.toggleClass("active");
     },
   });
   searchCloseBtn.on({
     click: function (e) {
       e.preventDefault();
-      dep2SearchBox.slideUp(300);
+      dep2SearchBox.removeClass("active");
     },
   });
 
   //모바일 테블릿 햄버거 버튼
-
-  mobileMenuBtn.click(function (e) {
-    e.preventDefault();
-    mobileLnbMenu.addClass("mobile-show");
+  mobileMenuBtn.on({
+    click: function (e) {
+      e.preventDefault();
+      mobileLnbMenu.addClass("mobile-show");
+    },
   });
 
-  mobileLnbCloseBtn.click(function (e) {
-    e.preventDefault();
-    mobileLnbMenu.removeClass("mobile-show");
+  mobileLnbCloseBtn.on({
+    click: function (e) {
+      e.preventDefault();
+      mobileLnbMenu.removeClass("mobile-show");
+    },
   });
 
   //모바일 -테블릿 서치버튼
-  mobileSearchBtn.click(function (e) {
-    e.preventDefault();
-    mobileSearchMenu.slideToggle(300);
+  mobileSearchBtn.on({
+    click: function (e) {
+      e.preventDefault();
+      mobileSearchMenu.toggleClass("active");
+    },
   });
 
-  mobileSearchCloseBtn.click(function (e) {
-    e.preventDefault();
-    mobileSearchMenu.slideUp(300);
+  mobileSearchCloseBtn.on({
+    click: function (e) {
+      e.preventDefault();
+      mobileSearchMenu.removeClass("active");
+    },
   });
-  searchTypeBtn.click(function (e) {
-    e.preventDefault();
 
-    if ($(this).hasClass("active")) {
-      $(this).toggleClass("active");
-      $(this).next().slideToggle(400);
-    } else {
-      typeListBox.hide();
-      searchTypeBtn.removeClass("active");
-      $(this).next().slideDown(400);
-      $(this).toggleClass("active");
-    }
+  searchTypeBtn.on({
+    click: function (e) {
+      e.preventDefault();
+
+      if ($(this).hasClass("active")) {
+        $(this).toggleClass("active");
+        $(this).next().slideToggle(400);
+      } else {
+        typeListBox.hide();
+        searchTypeBtn.removeClass("active");
+        $(this).next().slideDown(400);
+        $(this).toggleClass("active");
+      }
+    },
   });
 });

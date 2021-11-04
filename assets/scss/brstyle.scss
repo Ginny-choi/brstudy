@@ -713,6 +713,13 @@
     @media all and (max-width: 768px) {
       top: 131px;
     }
+
+    &.active {
+      @media all and (min-width: 768px) {
+        display: block;
+      }
+    }
+
     .dep2-search-content {
       display: flex;
       width: 85%;
@@ -841,6 +848,12 @@
     left: 0;
     width: 100%;
     background: #fff;
+
+    &.active {
+      @media all and (min-width: 768px) {
+        display: block;
+      }
+    }
 
     @media all and (max-width: 768px) {
       top: 131px;
@@ -1024,19 +1037,27 @@
     position: fixed;
     top: 0;
     right: 0;
-    display: flex;
-
+    // display: none;
     width: 80%;
-    max-width: 568px;
     height: 100vh;
     transition: transform 1s;
     transform: translateX(100%);
 
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+
     &.mobile-show {
-      transform: translateX(0);
+      @media all and (max-width: 768px) {
+        transform: translateX(0);
+        // display: block;
+      }
     }
 
     .left-icon-box {
+      float: left;
       width: 100px;
       height: 100%;
       background: #f1f2f8;
@@ -1096,6 +1117,7 @@
       }
     }
     .right-lnb-box {
+      float: right;
       width: calc(100% - 100px);
       overflow-y: scroll;
       background: #fff;
@@ -1198,6 +1220,13 @@
     width: 100%;
     background: #fff;
     display: none;
+    transition: top 1s;
+
+    &.active {
+      @media all and (max-width: 768px) {
+        display: block;
+      }
+    }
 
     @media all and (max-width: 567px) {
       top: 71px;
