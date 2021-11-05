@@ -372,5 +372,6 @@ template {
   display: block;
   overflow: hidden;
   line-height: 0;
-  text-indent: -9999px;
+  /* text-indent: -9999px; */
+  text-indent: -500%;
 }
