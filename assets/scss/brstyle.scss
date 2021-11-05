@@ -364,6 +364,7 @@
       }
       .info-box {
         height: 55px;
+        overflow: hidden;
         display: flex;
         background: url(../img/header_right_ad_bg.gif) no-repeat;
         background-size: cover;
@@ -373,6 +374,8 @@
         }
         ul {
           width: 356px;
+          transform: translateY(0);
+          transition: transform 0.5s;
           .text-box {
             padding: 0 10px 0 20px;
             line-height: 55px;
@@ -382,7 +385,8 @@
               font-size: 12px;
 
               .bar {
-                flex-basis: 25%;
+                width: 72px;
+                flex-shrink: 0;
                 color: #1572ba;
                 position: relative;
                 padding-left: 20px;

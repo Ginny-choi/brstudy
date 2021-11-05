@@ -18,6 +18,10 @@ $(document).ready(function () {
   const searchCloseBtn = $(".search-close-btn");
   const mobileLnbCloseBtn = $(".mobile-lnb-close-btn");
 
+  const infoWrap = $(".info-wrap");
+  const noticeControlBox = $(".info-box .control-box");
+  let cnt = 0;
+
   gnbBtn.on({
     mouseenter: function (e) {
       e.preventDefault();
@@ -166,5 +170,37 @@ $(document).ready(function () {
   function mobileSubhide() {
     mobileLnbMenu.removeClass("mobile-show");
     mobileSearchMenu.slideUp(300);
+  }
+
+  noticeControlBox.on({
+    click: function (e) {
+      e.preventDefault();
+      let target = e.target;
+
+      if (target.matches(".info-box .control-box .up-btn")) {
+        upCount();
+      } else if (target.matches(".info-box .control-box .down-btn")) {
+        downCount();
+      }
+    },
+  });
+
+  function noticeSlideFn() {
+    infoWrap.css("transform", "translateY(" + -55 * cnt + "px)");
+  }
+
+  function upCount() {
+    cnt++;
+    if (cnt > 4) {
+      cnt = 0;
+    }
+    noticeSlideFn();
+  }
+  function downCount() {
+    cnt--;
+    if (cnt < 0) {
+      cnt = 4;
+    }
+    noticeSlideFn();
   }
 });

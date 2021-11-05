@@ -366,6 +366,7 @@
 }
 #header .header .right-box .info-box {
   height: 55px;
+  overflow: hidden;
   display: flex;
   background: url(../img/header_right_ad_bg.gif) no-repeat;
   background-size: cover;
@@ -377,6 +378,8 @@
 }
 #header .header .right-box .info-box ul {
   width: 356px;
+  transform: translateY(0);
+  transition: transform 0.5s;
 }
 #header .header .right-box .info-box ul .text-box {
   padding: 0 10px 0 20px;
@@ -388,7 +391,8 @@
   font-size: 12px;
 }
 #header .header .right-box .info-box ul .text-box a .bar {
-  flex-basis: 25%;
+  width: 72px;
+  flex-shrink: 0;
   color: #1572ba;
   position: relative;
   padding-left: 20px;
