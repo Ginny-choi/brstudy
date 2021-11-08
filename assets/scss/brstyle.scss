@@ -963,6 +963,7 @@
 
     .mobile-info-box {
       height: 50px;
+      overflow: hidden;
 
       &::after {
         display: block;

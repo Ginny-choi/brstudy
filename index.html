@@ -379,15 +379,9 @@
             </nav>
           </div>
           <div class="right-box">
-            <div class="info-box">
-              <ul class="info-wrap">
-                <li class="text-box">
-                  <a href="#">
-                    <span class="bar">허가변경</span>
-                    <span class="notice-text">셀시브캡슐 허가변경에 대한 안내</span>
-                  </a>
-                </li>
-                <li class="text-box">
+            <div class="info-box mySwiper">
+              <ul class="info-wrap swiper-wrapper">
+                <li class="text-box swiper-slide">
                   <a href="#">
                     <span class="bar">허가변경</span>
                     <span class="notice-text"
@@ -396,7 +390,7 @@
                     >
                   </a>
                 </li>
-                <li class="text-box">
+                <li class="text-box swiper-slide">
                   <a href="#">
                     <span class="bar">허가변경</span>
                     <span class="notice-text"
@@ -404,16 +398,13 @@
                     >
                   </a>
                 </li>
-                <li class="text-box">
+                <li class="text-box swiper-slide">
                   <a href="#">
                     <span class="bar">허가변경</span>
-                    <span class="notice-text"
-                      >맥시크란정(아목시실린-클라불란산칼륨),
-                      맥시크란정625밀리그람(아목시실린-클라불란산칼륨) 허가변경에 대한 안내</span
-                    >
+                    <span class="notice-text">네오플라틴 주 허가사항 변경안내</span>
                   </a>
                 </li>
-                <li class="text-box">
+                <li class="text-box swiper-slide">
                   <a href="#">
                     <span class="bar">허가변경</span>
                     <span class="notice-text"
@@ -421,25 +412,16 @@
                     >
                   </a>
                 </li>
-                <li class="text-box">
+                <li class="text-box swiper-slide">
                   <a href="#">
                     <span class="bar">허가변경</span>
                     <span class="notice-text">셀시브캡슐 허가변경에 대한 안내</span>
                   </a>
                 </li>
-                <li class="text-box">
-                  <a href="#">
-                    <span class="bar">허가변경</span>
-                    <span class="notice-text"
-                      >맥시크란정(아목시실린-클라불란산칼륨),
-                      맥시크란정625밀리그람(아목시실린-클라불란산칼륨) 허가변경에 대한 안내</span
-                    >
-                  </a>
-                </li>
               </ul>
               <div class="control-box">
-                <button type="button" class="up-btn ir_pm">위버튼</button>
-                <button type="button" class="down-btn ir_pm">아래버튼</button>
+                <button type="button" class="up-btn ir_pm swiper-button-next">위버튼</button>
+                <button type="button" class="down-btn ir_pm swiper-button-prev">아래버튼</button>
               </div>
             </div>
             <div class="sns-wrap">
@@ -526,9 +508,18 @@
         </div>
         <!-- 테블릿-모바일 공지사항 -->
         <div class="mobile-notice">
-          <div class="mobile-info-box">
-            <ul>
-              <li class="text-box">
+          <div class="mobile-info-box mySwiper">
+            <ul class="info-wrap swiper-wrapper">
+              <li class="text-box swiper-slide">
+                <a href="#">
+                  <span class="bar">허가변경</span>
+                  <span class="notice-text"
+                    >맥시크란정(아목시실린-클라불란산칼륨),
+                    맥시크란정625밀리그람(아목시실린-클라불란산칼륨) 허가변경에 대한 안내</span
+                  >
+                </a>
+              </li>
+              <li class="text-box swiper-slide">
                 <a href="#">
                   <span class="bar">허가변경</span>
                   <span class="notice-text"
@@ -536,10 +527,30 @@
                   >
                 </a>
               </li>
+              <li class="text-box swiper-slide">
+                <a href="#">
+                  <span class="bar">허가변경</span>
+                  <span class="notice-text">네오플라틴 주 허가사항 변경안내</span>
+                </a>
+              </li>
+              <li class="text-box swiper-slide">
+                <a href="#">
+                  <span class="bar">허가변경</span>
+                  <span class="notice-text"
+                    >에이디마이신 주사액 (A.D.MYCIN inj.) 허가사항 변경안내</span
+                  >
+                </a>
+              </li>
+              <li class="text-box swiper-slide">
+                <a href="#">
+                  <span class="bar">허가변경</span>
+                  <span class="notice-text">셀시브캡슐 허가변경에 대한 안내</span>
+                </a>
+              </li>
             </ul>
             <div class="control-box">
-              <button type="button" class="up-btn ir_pm">위버튼</button>
-              <button type="button" class="down-btn ir_pm">아래버튼</button>
+              <button type="button" class="up-btn ir_pm swiper-button-next">위버튼</button>
+              <button type="button" class="down-btn ir_pm swiper-button-prev">아래버튼</button>
             </div>
           </div>
         </div>
@@ -1069,8 +1080,9 @@
     </header>
     <main id="main"></main>
     <footer id="footer"></footer>
-
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/swiper-bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

@@ -958,6 +958,7 @@
 }
 #header .mobile-notice .mobile-info-box {
   height: 50px;
+  overflow: hidden;
 }
 #header .mobile-notice .mobile-info-box::after {
   display: block;

@@ -164,35 +164,15 @@ $(document).ready(function () {
     mobileSearchMenu.slideUp(300);
   }
 
-  noticeControlBox.on({
-    click: function (e) {
-      e.preventDefault();
-      let target = e.target;
-
-      if (target.matches(".info-box .control-box .up-btn")) {
-        upCount();
-      } else if (target.matches(".info-box .control-box .down-btn")) {
-        downCount();
-      }
+  //공지사항 스와이프
+  var swiper = new Swiper(".mySwiper", {
+    direction: "vertical",
+    loop: true,
+    speed: 800,
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
-
-  function noticeSlideFn() {
-    infoWrap.css("transform", "translateY(" + -55 * cnt + "px)");
-  }
-
-  function upCount() {
-    cnt++;
-    if (cnt > 4) {
-      cnt = 0;
-    }
-    noticeSlideFn();
-  }
-  function downCount() {
-    cnt--;
-    if (cnt < 0) {
-      cnt = 4;
-    }
-    noticeSlideFn();
-  }
 });
