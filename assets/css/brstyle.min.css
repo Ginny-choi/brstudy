@@ -9,6 +9,8 @@
 
 #header {
   position: relative;
+  z-index: 4;
+  background: #fff;
 }
 #header .header {
   height: 170px;
@@ -1023,24 +1025,39 @@
   background: url(../img/downbtn.gif) no-repeat center;
 }
 #header .mobile-lnb-wrap {
-  z-index: 100;
+  z-index: 6;
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  transition: transform 1s;
   transform: translateX(100%);
-  opacity: 0;
+  transition: transform 0.9s;
+  display: none;
 }
 @media all and (max-width: 768px) {
   #header .mobile-lnb-wrap.mobile-show {
     transform: translateX(0);
-    opacity: 1;
   }
 }
+#header .mobile-lnb-wrap .mobile-lnb-bg {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: background-color 0.3s;
+}
+#header .mobile-lnb-wrap .mobile-lnb-bg.bgon {
+  background: rgba(0, 0, 0, 0.5);
+}
 #header .mobile-lnb-wrap .mobile-lnb-menu {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   width: 80%;
   height: 100vh;
@@ -1359,8 +1376,27 @@
   height: 20px;
 }
 
+.sub-bg {
+  display: none;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: background-color 0.3s;
+  transition-timing-function: linear;
+}
+.sub-bg.bgactive {
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+}
+
 #main {
+  z-index: 2;
+  position: relative;
   width: 100%;
   height: 600px;
-  background: rgba(0, 0, 0, 0.6);
+  background: #fff;
 }/*# sourceMappingURL=brstyle.min.css.map */

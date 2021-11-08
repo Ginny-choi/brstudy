@@ -7,6 +7,7 @@ $(document).ready(function () {
   const dropMenu = $(".drop-menu");
   const dep2SearchBox = $(".dep2-search-box");
   const mobileLnbMenu = $(".mobile-lnb-wrap");
+  const mobileLnbBg = $(".mobile-lnb-bg");
   const mobileSearchMenu = $(".mobile-search-menu");
   const typeListBox = $(".type-list-box");
 
@@ -17,21 +18,22 @@ $(document).ready(function () {
   const searchCloseBtn = $(".search-close-btn");
   const mobileLnbCloseBtn = $(".mobile-lnb-close-btn");
 
-  const infoWrap = $(".info-wrap");
-  const noticeControlBox = $(".info-box .control-box");
-  let cnt = 0;
+  const subBg = $(".sub-bg");
 
   gnbBtn.on({
     click: function (e) {
       e.preventDefault();
       dep2SearchBox.slideUp(300);
       dropMenu.slideUp(200);
+      mobileSubhide();
       if ($(this).hasClass("active")) {
+        subBg.removeClass("bgactive");
         subMenu.slideUp(300);
         $(this).removeClass("active");
       } else {
         subMenu.hide();
         gnbBtn.removeClass("active");
+        subBg.addClass("bgactive");
         $(this).next().slideToggle(300);
         $(this).addClass("active");
       }
@@ -40,6 +42,7 @@ $(document).ready(function () {
   closeBtn.on({
     click: function (e) {
       e.preventDefault();
+      subBg.removeClass("bgactive");
       gnbSubClose();
     },
   });
@@ -56,6 +59,7 @@ $(document).ready(function () {
   searchBox.on({
     click: function (e) {
       let target = e.target;
+
       e.preventDefault();
 
       if (target.matches(".menu-btn") || target.matches(".menu-btn > span")) {
@@ -64,6 +68,7 @@ $(document).ready(function () {
         dropMenu.slideToggle(200);
       } else if (target.matches(".search-drop-btn") || target.matches(".search-drop-btn > span")) {
         gnbSubClose();
+        subBg.toggleClass("bgactive");
         dropMenu.slideUp(200);
         dep2SearchBox.slideToggle(300);
       }
@@ -82,6 +87,7 @@ $(document).ready(function () {
   searchCloseBtn.on({
     click: function (e) {
       e.preventDefault();
+      subBg.removeClass("bgactive");
       dep2SearchBox.slideUp(300);
     },
   });
@@ -91,11 +97,18 @@ $(document).ready(function () {
     click: function (e) {
       let target = e.target;
       e.preventDefault();
+      gnbSubClose();
 
       if (target.matches(".mobile-menu-btn") || target.matches(".mobile-menu-btn > span")) {
         mobileSearchMenu.slideUp(300);
-        mobileLnbMenu.addClass("mobile-show");
+
+        mobileLngShow();
       } else if (target.matches(".mobile-search-btn")) {
+        if (subBg.hasClass("bgactive")) {
+          subBg.removeClass("bgactive");
+        } else {
+          subBg.toggleClass("bgactive");
+        }
         mobileSearchMenu.slideToggle(300);
       }
     },
@@ -104,8 +117,8 @@ $(document).ready(function () {
   mobileLnbMenu.on({
     click: function (e) {
       let target = e.target;
-      if (target.matches(".mobile-lnb-wrap")) {
-        mobileLnbMenu.removeClass("mobile-show");
+      if (target.matches(".mobile-lnb-bg")) {
+        mobileLnbClose();
       }
     },
   });
@@ -113,23 +126,37 @@ $(document).ready(function () {
   mobileLnbCloseBtn.on({
     click: function (e) {
       e.preventDefault();
-      mobileLnbMenu.removeClass("mobile-show");
+      mobileLnbClose();
     },
   });
+
+  function mobileLngShow() {
+    mobileLnbBg.css({
+      "transition-delay": "0.7s",
+    });
+    mobileLnbMenu.fadeIn(300);
+    mobileLnbMenu.addClass("mobile-show");
+    mobileLnbBg.addClass("bgon");
+  }
+
+  function mobileLnbClose() {
+    mobileLnbBg.css({
+      "transition-delay": "0s",
+    });
+    mobileLnbBg.removeClass("bgon");
+    subBg.removeClass("bgactive");
+    mobileLnbMenu.removeClass("mobile-show");
+  }
 
   mobileSearchCloseBtn.on({
     click: function (e) {
       e.preventDefault();
+      subBg.removeClass("bgactive");
       mobileSearchMenu.slideUp(300);
     },
   });
 
-  mobileSearchMenu.on({
-    mouseleave: function () {
-      $(this).slideUp(300);
-    },
-  });
-
+  //모바일 서치 메뉴 리스트 타입 버튼
   searchTypeBtn.on({
     click: function (e) {
       e.preventDefault();
@@ -146,6 +173,7 @@ $(document).ready(function () {
     },
   });
 
+  //해상도별 서브 메뉴
   $window.resize(function () {
     if ($window.innerWidth() > 768) {
       mobileSubhide();
@@ -163,6 +191,15 @@ $(document).ready(function () {
     mobileLnbMenu.removeClass("mobile-show");
     mobileSearchMenu.slideUp(300);
   }
+  //서브 배경 클릭시 닫기
+  subBg.on({
+    click: function () {
+      $(this).removeClass("bgactive");
+      dep2SearchBox.slideUp(300);
+      mobileSearchMenu.slideUp(300);
+      gnbSubClose();
+    },
+  });
 
   //공지사항 스와이프
   var swiper = new Swiper(".mySwiper", {
