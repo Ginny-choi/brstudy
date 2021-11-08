@@ -1,6 +1,5 @@
 $(document).ready(function () {
   const $window = $(window);
-  const navGnbBox = $(".gnb-box");
   const searchBox = $(".right-box .search-box");
   const mobilesearchBox = $(".mobile-search-box");
   const gnbBtn = $(".gnb-btn");
@@ -23,8 +22,10 @@ $(document).ready(function () {
   let cnt = 0;
 
   gnbBtn.on({
-    mouseenter: function (e) {
+    click: function (e) {
       e.preventDefault();
+      dep2SearchBox.slideUp(300);
+      dropMenu.slideUp(200);
       if ($(this).hasClass("active")) {
         subMenu.slideUp(300);
         $(this).removeClass("active");
@@ -39,15 +40,16 @@ $(document).ready(function () {
   closeBtn.on({
     click: function (e) {
       e.preventDefault();
-      gnbBtn.removeClass("active");
-      subMenu.slideUp(400);
+      gnbSubClose();
     },
   });
 
-  navGnbBox.mouseleave(function () {
-    subMenu.hide();
+  ///웹 gnb 서브 메뉴 닫기
+
+  function gnbSubClose() {
     gnbBtn.removeClass("active");
-  });
+    subMenu.slideUp(300);
+  }
 
   //웹 햄버거 버튼 & 서치버튼
 
@@ -57,24 +59,14 @@ $(document).ready(function () {
       e.preventDefault();
 
       if (target.matches(".menu-btn") || target.matches(".menu-btn > span")) {
+        gnbSubClose();
         dep2SearchBox.slideUp(300);
-        dropMenu.slideToggle(300);
+        dropMenu.slideToggle(200);
       } else if (target.matches(".search-drop-btn") || target.matches(".search-drop-btn > span")) {
-        dropMenu.slideUp(300);
+        gnbSubClose();
+        dropMenu.slideUp(200);
         dep2SearchBox.slideToggle(300);
       }
-    },
-  });
-
-  dropMenu.on({
-    mouseleave: function () {
-      $(this).slideUp(300);
-    },
-  });
-
-  dep2SearchBox.on({
-    mouseleave: function (e) {
-      $(this).slideUp(300);
     },
   });
 
@@ -83,7 +75,7 @@ $(document).ready(function () {
   dropCloseBtn.on({
     click: function (e) {
       e.preventDefault();
-      dropMenu.slideUp(300);
+      dropMenu.slideUp(200);
     },
   });
 
@@ -164,7 +156,7 @@ $(document).ready(function () {
   });
 
   function webSubhide() {
-    dropMenu.slideUp(300);
+    dropMenu.slideUp(200);
     dep2SearchBox.slideUp(300);
   }
   function mobileSubhide() {
