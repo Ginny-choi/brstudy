@@ -7,3 +7,14 @@
   -webkit-line-clamp: $clamp;
   -webkit-box-orient: vertical;
 }
+
+@mixin bar($height, $top) {
+  content: "";
+  position: absolute;
+  top: $top;
+  right: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: $height;
+  background: #dbdbdb;
+}

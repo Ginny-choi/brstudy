@@ -23,16 +23,14 @@ $(document).ready(function () {
   gnbBtn.on({
     click: function (e) {
       e.preventDefault();
-      dep2SearchBox.slideUp(300);
-      dropMenu.slideUp(200);
+      webSubhide();
       mobileSubhide();
       if ($(this).hasClass("active")) {
         subBg.removeClass("bgactive");
         subMenu.slideUp(300);
         $(this).removeClass("active");
       } else {
-        subMenu.hide();
-        gnbBtn.removeClass("active");
+        gnbSubClose();
         subBg.addClass("bgactive");
         $(this).next().slideToggle(300);
         $(this).addClass("active");
@@ -59,16 +57,20 @@ $(document).ready(function () {
   searchBox.on({
     click: function (e) {
       let target = e.target;
-
       e.preventDefault();
 
       if (target.matches(".menu-btn") || target.matches(".menu-btn > span")) {
         gnbSubClose();
+        subBg.removeClass("bgactive");
         dep2SearchBox.slideUp(300);
         dropMenu.slideToggle(200);
       } else if (target.matches(".search-drop-btn") || target.matches(".search-drop-btn > span")) {
-        gnbSubClose();
-        subBg.toggleClass("bgactive");
+        if (gnbBtn.hasClass("active")) {
+          gnbSubClose();
+          subBg.addClass("bgactive");
+        } else {
+          subBg.toggleClass("bgactive");
+        }
         dropMenu.slideUp(200);
         dep2SearchBox.slideToggle(300);
       }
@@ -97,15 +99,15 @@ $(document).ready(function () {
     click: function (e) {
       let target = e.target;
       e.preventDefault();
-      gnbSubClose();
-
       if (target.matches(".mobile-menu-btn") || target.matches(".mobile-menu-btn > span")) {
+        subBg.removeClass("bgactive");
+        gnbSubClose();
         mobileSearchMenu.slideUp(300);
-
         mobileLngShow();
       } else if (target.matches(".mobile-search-btn")) {
-        if (subBg.hasClass("bgactive")) {
-          subBg.removeClass("bgactive");
+        if (gnbBtn.hasClass("active")) {
+          gnbSubClose();
+          subBg.addClass("bgactive");
         } else {
           subBg.toggleClass("bgactive");
         }
@@ -183,10 +185,10 @@ $(document).ready(function () {
     }
   });
 
-  function webSubhide() {
+  webSubhide = () => {
     dropMenu.slideUp(200);
     dep2SearchBox.slideUp(300);
-  }
+  };
   function mobileSubhide() {
     mobileLnbMenu.removeClass("mobile-show");
     mobileSearchMenu.slideUp(300);

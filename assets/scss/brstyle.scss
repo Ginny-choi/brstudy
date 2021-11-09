@@ -55,12 +55,12 @@
       flex-grow: 1;
       border-bottom: 1px solid #dbdbdb;
 
-      @media all and (max-width: 768px) {
-        border-right: 1px solid #dbdbdb;
-      }
-      @media all and (max-width: 576px) {
-        border-right: none;
-      }
+      // @media all and (max-width: 768px) {
+      //   border-right: 1px solid #dbdbdb;
+      // }
+      // @media all and (max-width: 576px) {
+      //   border-right: none;
+      // }
 
       .logo-box {
         width: 100%;
@@ -214,7 +214,7 @@
         }
         .sub-content {
           display: flex;
-          width: 70%;
+          width: 80%;
           margin: 0 auto;
           padding: 45px 0;
 
@@ -266,8 +266,12 @@
               > li {
                 float: left;
                 width: 33.333%;
-                height: 60px;
+                height: 70px;
                 padding: 0 15px;
+
+                &.pipeLine {
+                  width: 40%;
+                }
                 @media all and (max-width: 768px) {
                   width: 50%;
 
@@ -282,16 +286,16 @@
                   }
                 }
 
-                &:nth-child(1),
-                &:nth-child(2),
-                &:nth-child(3) {
-                  margin-bottom: 50px;
+                @for $i from 1 through 3 {
+                  &:nth-child(#{$i}) {
+                    margin-bottom: 50px;
 
-                  @media all and (max-width: 768px) {
-                    margin-bottom: 40px;
-                  }
-                  @media all and (max-width: 567px) {
-                    margin-bottom: 10px;
+                    @media all and (max-width: 768px) {
+                      margin-bottom: 40px;
+                    }
+                    @media all and (max-width: 567px) {
+                      margin-bottom: 10px;
+                    }
                   }
                 }
                 .dep3 {
@@ -394,14 +398,7 @@
                 padding-left: 20px;
 
                 &::after {
-                  content: "";
-                  position: absolute;
-                  top: 50%;
-                  right: 0;
-                  transform: translateY(-50%);
-                  width: 1px;
-                  height: 10px;
-                  background: #dbdbdb;
+                  @include m.bar(10px, 50%);
                 }
               }
               .notice-text {
@@ -655,18 +652,6 @@
         background: url(../img/btn_tablet_search.png) no-repeat center;
         background-size: 45px;
         border-left: 1px solid #dbdbdb;
-
-        // &::after {
-        //   display: block;
-        //   content: "";
-        //   position: absolute;
-        //   top: 50%;
-        //   right: 0;
-        //   transform: translateY(-50%);
-        //   width: 1px;
-        //   height: 20px;
-        //   background: #dbdbdb;
-        // }
       }
       .mobile-menu-btn {
         display: block;
@@ -992,14 +977,7 @@
               padding: 0 5px 0 20px;
 
               &::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
-                width: 1px;
-                height: 10px;
-                background: #dbdbdb;
+                @include m.bar(10px, 50%);
               }
             }
             .notice-text {
@@ -1183,15 +1161,7 @@
               }
 
               &.bar::after {
-                content: "";
-                display: block;
-                position: absolute;
-                right: 0;
-                top: 48%;
-                transform: translateY(-50%);
-                width: 1px;
-                height: 19px;
-                background: #777;
+                @include m.bar(19px, 48%);
               }
               a {
                 display: block;
